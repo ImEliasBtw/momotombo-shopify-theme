@@ -20,8 +20,8 @@
             "text": "Welcome to our store",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
-            "letter_spacing": "normal",
-            "case": "none"
+            "letter_spacing": "loose",
+            "case": "uppercase"
           },
           "blocks": {}
         }
@@ -33,11 +33,11 @@
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
-        "divider_width": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 15,
-        "padding-block-end": 15
+        "background_color": "{{ settings.color_palette.foreground }}",
+        "divider_width": 0,
+        "divider_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 10,
+        "padding-block-end": 10
       }
     },
     "header_section": {
@@ -91,13 +91,14 @@
         "section_width": "page-width",
         "section_height": "standard",
         "enable_sticky_header": "always",
-        "divider_width": 0,
+        "divider_width": 1,
         "divider_size": "page-width",
         "border_width": 0,
         "background_color_top": "{{ settings.color_palette.background }}",
         "enable_transparent_header_home": false,
         "enable_transparent_header_product": false,
-        "enable_transparent_header_collection": false
+        "enable_transparent_header_collection": false,
+        "divider_color": "{{ settings.color_palette.color2 }}"
       }
     }
   },

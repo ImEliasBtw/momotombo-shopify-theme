@@ -1,0 +1,70 @@
+{% doc %}
+  Momotombo brand layer. Exposes the brand-kit colors as named CSS tokens
+  (driven by the theme color palette, so edits in the theme editor flow through)
+  and adds a few small brand touches on top of Horizon's base styles.
+
+  Palette mapping (Theme settings > Colors):
+  - background → Paper      #FBF7F0
+  - foreground → Espresso   #2B1B12
+  - color1     → Bark       #7A4A2A
+  - color2     → Sand       #E5D8C3
+  - color3     → Gold       #C9A24A
+  - color4     → Ember      #B06A35
+  - color5     → Cream      #F3EADB
+{% enddoc %}
+
+{% liquid
+  assign mt_paper = settings.color_palette.background | default: '#FBF7F0'
+  assign mt_espresso = settings.color_palette.foreground | default: '#2B1B12'
+  assign mt_bark = settings.color_palette.color1 | default: '#7A4A2A'
+  assign mt_sand = settings.color_palette.color2 | default: '#E5D8C3'
+  assign mt_gold = settings.color_palette.color3 | default: '#C9A24A'
+  assign mt_ember = settings.color_palette.color4 | default: '#B06A35'
+  assign mt_cream = settings.color_palette.color5 | default: '#F3EADB'
+%}
+
+{% style %}
+  :root {
+    --momotombo-paper: {{ mt_paper }};
+    --momotombo-espresso: {{ mt_espresso }};
+    --momotombo-espresso-rgb: {{ mt_espresso | color_to_rgb | remove: 'rgb(' | remove: ')' | replace: ',', ' ' }};
+    --momotombo-bark: {{ mt_bark }};
+    --momotombo-sand: {{ mt_sand }};
+    --momotombo-gold: {{ mt_gold }};
+    --momotombo-gold-rgb: {{ mt_gold | color_to_rgb | remove: 'rgb(' | remove: ')' | replace: ',', ' ' }};
+    --momotombo-ember: {{ mt_ember }};
+    --momotombo-cream: {{ mt_cream }};
+  }
+
+  ::selection {
+    background-color: rgb(var(--momotombo-gold-rgb) / 0.35);
+    color: var(--momotombo-espresso);
+  }
+
+  /* Wordmark-style headings (Playfair Display): lining numerals + kerning */
+  h1, h2, .h1, .h2 {
+    font-feature-settings: 'lnum' 1, 'kern' 1;
+  }
+
+  /* Tagline style ("ARTESANÍAS DE NICARAGUA") for eyebrows / small caps labels */
+  .momotombo-eyebrow {
+    font-family: var(--font-subheading--family);
+    font-weight: var(--font-subheading--weight);
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--momotombo-bark);
+  }
+
+  /* Stitched (dashed gold) border from the logo mark — opt-in utility class */
+  .momotombo-stitch {
+    outline: 1.5px dashed var(--momotombo-gold);
+    outline-offset: -8px;
+  }
+
+  /* Brand-kit SVG logo fallback in the header (used until a logo is uploaded) */
+  .header-logo__image--brand-fallback {
+    display: block;
+    object-fit: contain;
+  }
+{% endstyle %}

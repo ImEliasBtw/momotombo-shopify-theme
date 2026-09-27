@@ -57,8 +57,8 @@
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -112,7 +112,7 @@
             "border_style": "all",
             "input_style": "custom",
             "border_width": 1,
-            "border_radius": 100,
+            "border_radius": 2,
             "input_background_color": "{{ settings.color_palette.background }}",
             "input_text_color": "{{ settings.color_palette.color1 }}",
             "input_border_color": "{{ settings.color_palette.color2 }}",
@@ -138,9 +138,9 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 30,
-        "padding-block-end": 30
+        "background_color": "{{ settings.color_palette.foreground }}",
+        "padding-block-start": 48,
+        "padding-block-end": 36
       }
     },
     "footer_utilities_jLGE8U": {
@@ -185,8 +185,8 @@
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
-        "background_color": "{{ settings.color_palette.background }}",
+        "divider_color": "{{ settings.color_palette.color1 }}",
+        "background_color": "{{ settings.color_palette.foreground }}",
         "padding-block-start": 20,
         "padding-block-end": 48
       }
